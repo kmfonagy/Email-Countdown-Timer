@@ -11,12 +11,12 @@ services:
         value: 3.11.8
 
   - type: static_site
-  name: countdown-frontend
-  runtime: node
-  plan: free
-  region: oregon
-  buildCommand: npm install && npm run build
-  staticPublishPath: client/build
-  envVars:
-    - key: REACT_APP_API_BASE
-      value: https://countdown-api.onrender.com
+    name: countdown-frontend
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    staticPublishPath: client/build
+    envVars:
+      - key: REACT_APP_API_BASE
+        value: https://countdown-api.onrender.com
