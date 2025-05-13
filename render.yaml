@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: countdown-api
+    runtime: python
+    plan: free
+    region: oregon  # closest available region to US East
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
