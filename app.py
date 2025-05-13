@@ -5,11 +5,13 @@ import io
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/timer": {"origins": "*"}})  # allow all origins (good for local dev)
 
 @app.route("/timer")
 def timer():
+    
     target_str = request.args.get("target")
+    print("Target param received:", target_str)
     if not target_str:
         return "Missing target parameter", 400
 
@@ -97,3 +99,7 @@ def timer():
     )
     img_io.seek(0)
     return send_file(img_io, mimetype="image/gif")
+
+# ✅ This is the key part to run Flask manually on port 5050:
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5050, debug=True)
