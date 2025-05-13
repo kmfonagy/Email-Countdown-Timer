@@ -8,7 +8,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const iso = new Date(target).toISOString();
-const url = `http://localhost:5050/timer?target=${encodeURIComponent(iso)}`;
+    const url = `${process.env.REACT_APP_API_BASE}/timer?target=${encodeURIComponent(iso)}`;
     setGifUrl(url);
   };
 
