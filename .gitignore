@@ -1,0 +1,25 @@
+# === Python / Flask ===
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Ignore local Flask environment config
+.env
+instance/
+*.db
+
+# === Node / React ===
+client/node_modules/
+client/.env
+client/build/
+client/.DS_Store
+
+# === macOS ===
+.DS_Store
+
+# === OS Junk ===
+Thumbs.db
+ehthumbs.db
