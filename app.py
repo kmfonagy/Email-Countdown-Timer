@@ -80,7 +80,7 @@ def timer(timestamp):
                 line_x = column_width - 2
                 
                 # Pro tip: use named offsets to control vertical placement
-                line_offset_top = 13    # Distance from y_val to top of the line
+                line_offset_top = 12    # Distance from y_val to top of the line
                 line_height = 14        # Length of the vertical line
 
                 line_start_y = y_val + line_offset_top
