@@ -78,7 +78,15 @@ def timer(timestamp):
             # Draw vertical line after Days
             if idx == 0:
                 line_x = column_width - 2
-                draw.line([(line_x, y_val + 7), (line_x, y_val + 21)], fill=separator_color, width=1)
+                
+                # Pro tip: use named offsets to control vertical placement
+                line_offset_top = 13    # Distance from y_val to top of the line
+                line_height = 14        # Length of the vertical line
+
+                line_start_y = y_val + line_offset_top
+                line_end_y = line_start_y + line_height
+                
+                draw.line([(line_x, line_start_y), (line_x, line_end_y)], fill=separator_color, width=1)
 
         frames.append(img)
 
