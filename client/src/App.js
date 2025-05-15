@@ -7,11 +7,15 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const iso = new Date(target).toISOString();
-    // Prod URL
-    const url = `${process.env.REACT_APP_API_BASE}/timer?target=${encodeURIComponent(iso)}`;
+    const date = new Date(target);
+    const timestamp = date
+      .toISOString()
+      .replace(/[-:]/g, '')
+      .replace(/\.\d{3}Z$/, 'Z');
     // Test URL
-    // const url = `http://localhost:5050/timer?target=${encodeURIComponent(iso)}`;
+    // const url = `http://localhost:5050/timer/${timestamp}`;
+    // Prod URL
+    const url = `${process.env.REACT_APP_API_BASE}/timer/${timestamp}`;
     setGifUrl(url);
   };
 
