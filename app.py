@@ -7,18 +7,14 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, resources={r"/timer": {"origins": "*"}})  # allow all origins (good for local dev)
 
-@app.route("/timer")
-def timer():
+@app.route("/timer/<timestamp>")
+def timer(timestamp):
     
-    target_str = request.args.get("target")
-    print("Target param received:", target_str)
-    if not target_str:
-        return "Missing target parameter", 400
-
     try:
-        target = datetime.fromisoformat(target_str).replace(tzinfo=timezone.utc)
-    except Exception:
-        return "Invalid target datetime format", 400
+        # Example format: 20250621T035900Z
+        target = datetime.strptime(timestamp, "%Y%m%dT%H%M%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return "Invalid timestamp format", 400
 
     now = datetime.now(timezone.utc)
     width, height = 263, 67
