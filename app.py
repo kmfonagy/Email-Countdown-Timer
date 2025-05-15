@@ -21,7 +21,7 @@ def timer():
         return "Invalid target datetime format", 400
 
     now = datetime.now(timezone.utc)
-    width, height = 263, 63
+    width, height = 263, 67
     frame_count = 60  # 60 seconds of animation
     number_color = "#d2232a"
     label_color = "#000000"
@@ -29,8 +29,8 @@ def timer():
     bg_color = "#ffffff"
 
     # Load fonts
-    orbitron = ImageFont.truetype("fonts/Orbitron-Regular.ttf", 22)
-    raleway = ImageFont.truetype("fonts/Raleway-Regular.ttf", 10)
+    orbitron = ImageFont.truetype("fonts/Orbitron-SemiBold.ttf", 28)
+    raleway = ImageFont.truetype("fonts/Raleway-Medium.ttf", 10)
 
     frames = []
 
@@ -56,7 +56,7 @@ def timer():
         colon = ":"
 
         y_val = 5
-        y_label = 38
+        y_label = 44
 
         column_width = 263 // 4  # ~65px per block
         digit_width = orbitron.getlength("88")
